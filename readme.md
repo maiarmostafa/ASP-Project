@@ -20,6 +20,7 @@ See all current and previous projects that he join it.
 Create Module team and Evaluate Junior Engineers. 
 ---------------------------------------------------------------------------------------------------------------
 Junior Engineers Role:-
+
 Checking His Profile to see the requests that have been sent by any project managers or Team leaders that need him to join the team and send response either accept or reject.See all current and previous projects that he join it.
 ---------------------------------------------------------------------------------------------------------------
 Customer Role:-
