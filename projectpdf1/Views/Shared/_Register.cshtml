@@ -1,0 +1,101 @@
+﻿@model projectpdf1.Models.User
+
+
+<title>@ViewBag.Title</title>
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+
+<div id="modal-contianer-Register" class="modal fade" tabindex="-1" role="dialog" style="border:5px solid #3A87AD">
+    <!--<a href="#close" title="close" class="modal-close-btn">X</a>-->
+    <div class="modal-content" style="width:500px !important; margin:10px auto !important">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            Register Form
+        </div>
+        @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="modal-body">
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    @Html.LabelFor(x => x.U_FName)
+                    @Html.TextBoxFor(x => x.U_FName, new { @class = "form-control", id = "firstname", placeholder = "First Name", type = "text", required = "true" })
+                    @Html.ValidationMessageFor(x => x.U_FName, "", new { @class = "MessageError" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ULName)
+                    @Html.TextBoxFor(x => x.ULName, new { @class = "form-control", id = "lastname", placeholder = "Last Name", type = "text", required = "true" })
+                    @Html.ValidationMessageFor(x => x.ULName, "", new { @class = "MessageError" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.U_Email)
+                    @Html.TextBoxFor(x => x.U_Email, new { @class = "form-control", id = "Email", placeholder = "Example@email.com", type = "email", required = "true" })
+                    @Html.ValidationMessageFor(x => x.U_Email, "", new { @class = "MessageError" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.U_Job)
+                    @Html.TextBoxFor(x => x.U_Job, new { @class = "form-control", id = "job", placeholder = "job", type = "text", required = "true" })
+                    @Html.ValidationMessageFor(x => x.U_Job, "", new { @class = "MessageError" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.U_Phone)
+                    @Html.TextBoxFor(x => x.U_Phone, new { @class = "form-control", id = "phone", placeholder = "01111111111", type = "text", required = "true" })
+                    @Html.ValidationMessageFor(x => x.U_Phone, "", new { @class = "MessageError" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.U_Password)
+                    @Html.TextBoxFor(x => x.U_Password, new { @class = "form-control", id = "Password", placeholder = "Password", type = "password" })
+                    @Html.ValidationMessageFor(x => x.U_Password, "", new { @class = "MessageError" })
+                </div>
+
+
+                @*@/*Html.LabelFor(x => x.photoFile)*/
+                    @/*Html.TextBoxFor(x => x.photoFile, new { type = "file", name = "image", required = "true" })*/
+                    @/*Html.ValidationMessageFor(x => x.photoFile, "", new { @class = "MessageError" })*@
+
+                <div class="form-group">
+                    <label> Photo </label>
+                    <input type="file" name="photo" />
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Type_id)
+                    @Html.DropDownList("Type_id", EnumHelper.GetSelectList(typeof(projectpdf1.App_Code.UsersTypeNameMapping)), "Enter Type")
+                    @Html.ValidationMessageFor(x => x.Type_id)
+                </div>
+
+            </div>
+            <div class="line line2"></div>
+            <div class="modal-footer" id="Login">
+                <input type="submit" class="center-block hi btn btn-sm btn-warning" value="Create Account">
+                <br />
+                @*@Html.ActionLink("Already Have An Account ? Log in.", "Login", "Home", new { @class = "btn btn-sm btn-warning center-block" })*@
+                <button class="btm btn-warning pull-right" style="margin:10px" onclick="OpenLoginModal()"> Already Have An Account ? Log in.</button>
+            </div>
+
+
+
+        }
+    </div>
+</div>
+<style>
+    .error {
+        text-align: center;
+        font-weight: bold;
+        font-family: "Times New Roman";
+        color: white;
+        background: #d1a3a3;
+    }
+
+    .myimg {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .rbtnMargin {
+        margin-left: 90px;
+    }
+</style>

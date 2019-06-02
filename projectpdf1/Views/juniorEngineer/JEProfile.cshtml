@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "JEProfile";
+    Layout = "~/Views/Shared/_CustomerAndJE.cshtml";
+}
+
+<style>
+    .card {
+        display: inline-block;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        width: 29%;
+        background: #e8fafe;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+    .w3-container {
+        padding: 10px 16px;
+    }
+
+    .container .jumbotron {
+        padding-right: 36px;
+        padding-left: 60px;
+    }
+</style>
+<br />
+<br />
+<br />
+<div class="card jumbotron">
+    <div>
+        <p class="w3-center"><img src="@Url.Content(Model.U_Pathphoto)" class="w3-circle" style="height:106px;width:106px" alt="Avatar" /></p>
+        <h3 class="w3-center" style="text-transform:capitalize;">@Model.U_FName @Model.ULName</h3>
+        <hr>
+        <p style="text-transform:capitalize;"><i class="glyphicon glyphicon-lock fa-fw w3-margin-right w3-text-theme"></i>@Model.U_Job</p>
+        <p><i class="glyphicon glyphicon-earphone fa-fw w3-margin-right w3-text-theme"></i> @Model.U_Phone</p>
+        <p><i class="glyphicon glyphicon-envelope fa-fw w3-margin-right w3-text-theme"></i> @Model.U_Email</p>
+
+
+    </div>
+</div>
+
+
+

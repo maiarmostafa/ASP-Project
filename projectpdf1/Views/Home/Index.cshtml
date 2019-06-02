@@ -1,0 +1,94 @@
+﻿@model  projectpdf1.Models.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .card {
+        display: inline-block;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        width: 29%;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+    .container {
+        padding: 10px 16px;
+    }
+</style>
+@Html.Partial("_Login", Model)
+@Html.Partial("_Register", Model)
+<section id="about" class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading"> <img src="~/Images/logo.png" width="45" height="45"> <b> About R&C</b> </h2>
+                <hr class="my-4">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="service-box mt-5 mx-auto">
+                    <i class="fa fa-4x fa-file-archive-o text-primary mb-3 sr-icons"> </i>
+                    <h3 class="mb-3"> <img src="~/Images/aboutc.png" width="45" height="45"> &nbsp About Realstate and constructions</h3>
+                    <p class="text-muted mb-0">
+                        <h3> We love making things amazing and simple, You can create Your Dream organization with our best team Builders.</h3>
+                        Real estate investing, even on a very small scale, remains a tried and true means of building an individual's cash flow and wealth.Real estate is the key cost of physical retailers. That's why there's the old saw: location, location, location.Lorem ipsum dolor sit amet consectetur rebates and vitality, so that the labor and sorrow, now serve dnmo eiusmod long-ven up with any of them know who nostrud exercise, you use for more information.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<div class="team" id="team">
+    <h2 align="center"> <img src="~/Images/team.png" width="50" height="50"> <b> Team Members</b> </h2>
+    <hr class="my-4">
+    <div class="card">
+        <img src="~/Images/ahmedsamir.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4> <b> Ahmed Samir</b> </h4>
+            <p> <img src="~/Images/mail.png" width="20" height="20"> &nbsp ahmedsamir@gmail.com</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="~/Images/hassan.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4> <b> Al-Hassan Abdelraof</b> </h4>
+            <p> <img src="~/Images/mail.png" width="20" height="20"> &nbsp Al-Hassan@gmail.com<p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="~/Images/mirna.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4> <b> Mirna Mourad</b> </h4>
+            <p> <img src="~/Images/mail.png" width="20" height="20"> &nbsp mirnamourad411@gmail.com</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="~/Images/ahmed.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4> <b> Ahmed Sayed</b> </h4>
+            <p> <img src="~/Images/mail.png" width="20" height="20"> &nbsp ahmedsayed@gmail.com</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="~/Images/m.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4> <b> Mayar Mostafa</b> </h4>
+            <p> <img src="~/Images/mail.png" width="20" height="20"> &nbsp mayarmostafa@gmail.com</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="~/Images/rahma.PNG" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4> <b> Rahma Ashraf</b> </h4>
+            <p> <img src="~/Images/mail.png" width="20" height="20"> &nbsp Rahmaashraf@gmail.com</p>
+        </div>
+    </div>
+</div>
+<br>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PMrealstateModelStoreContainer" CdmEntityContainer="PMrealstateEntities">
+    <EntitySetMapping Name="HiringRequests">
+      <EntityTypeMapping TypeName="PMrealstateModel.HiringRequest">
+        <MappingFragment StoreEntitySet="HiringRequest">
+          <ScalarProperty Name="R_Id" ColumnName="R_Id" />
+          <ScalarProperty Name="Project_id" ColumnName="Project_id" />
+          <ScalarProperty Name="User_id" ColumnName="User_id" />
+          <ScalarProperty Name="State_id" ColumnName="State_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Onprogresstates">
+      <EntityTypeMapping TypeName="PMrealstateModel.Onprogresstate">
+        <MappingFragment StoreEntitySet="Onprogresstate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Onprog_Name" ColumnName="Onprog_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="PMrealstateModel.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="Project_Id" ColumnName="Project_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+          <ScalarProperty Name="Onprog_id" ColumnName="Onprog_id" />
+          <ScalarProperty Name="Post_content" ColumnName="Post_content" />
+          <ScalarProperty Name="Post_name" ColumnName="Post_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="PMrealstateModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+          <ScalarProperty Name="State_Name" ColumnName="State_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="PMrealstateModel.Team">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="Team_Id" ColumnName="Team_Id" />
+          <ScalarProperty Name="U_id" ColumnName="U_id" />
+          <ScalarProperty Name="project_id" ColumnName="project_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Role">
+      <EntityTypeMapping TypeName="PMrealstateModel.User_Role">
+        <MappingFragment StoreEntitySet="User_Role">
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Type_Name" ColumnName="Type_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="PMrealstateModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="U_Id" ColumnName="U_Id" />
+          <ScalarProperty Name="U_FName" ColumnName="U_FName" />
+          <ScalarProperty Name="ULName" ColumnName="ULName" />
+          <ScalarProperty Name="U_Email" ColumnName="U_Email" />
+          <ScalarProperty Name="U_Phone" ColumnName="U_Phone" />
+          <ScalarProperty Name="U_Password" ColumnName="U_Password" />
+          <ScalarProperty Name="U_Job" ColumnName="U_Job" />
+          <ScalarProperty Name="U_Pathphoto" ColumnName="U_Pathphoto" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersAccepets">
+      <EntityTypeMapping TypeName="PMrealstateModel.UsersAccepet">
+        <MappingFragment StoreEntitySet="UsersAccepet">
+          <ScalarProperty Name="UAcc_Id" ColumnName="UAcc_Id" />
+          <ScalarProperty Name="User_id" ColumnName="User_id" />
+          <ScalarProperty Name="Project_id" ColumnName="Project_id" />
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

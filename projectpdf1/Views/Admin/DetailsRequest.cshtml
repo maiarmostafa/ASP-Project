@@ -1,0 +1,38 @@
+﻿@model projectpdf1.Models.Project
+@{
+    ViewBag.Title = "EditList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Details Project</h2>
+<br />
+@using (Html.BeginForm("DetailsRequest", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(x => x.Project_Id)
+    <div class="form-group">
+        @Html.LabelFor(x => x.Post_content)
+        @Html.TextBoxFor(x => x.Post_content, new { @class = "form-control", id = "firstname", placeholder = "Post Content", type = "text", required = "true" })
+        @Html.ValidationMessageFor(x => x.Post_content, "", new { @class = "MessageError" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Post_name)
+        @Html.TextAreaFor(x => x.Post_name, new { @class = "form-control", id = "lastname", placeholder = "Post Name", type = "text", required = "true" })
+        @Html.ValidationMessageFor(x => x.Post_name, "", new { @class = "MessageError" })
+    </div>
+
+
+    <div class="line line2"></div>
+
+
+    <br />
+    <br />
+    <div>
+        @Html.ActionLink("Back to Requests", "Requests", "Admin", new { @class = "btn btn-success" })
+    </div>
+
+}
+
+
+

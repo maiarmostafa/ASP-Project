@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PMrealstateModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="HiringRequest">
+    <Key>
+      <PropertyRef Name="R_Id" />
+    </Key>
+    <Property Name="R_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Project_id" Type="int" />
+    <Property Name="User_id" Type="int" />
+    <Property Name="State_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Onprogresstate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Onprog_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Project_Id" />
+    </Key>
+    <Property Name="Project_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="int" />
+    <Property Name="State_Id" Type="int" />
+    <Property Name="Onprog_id" Type="int" />
+    <Property Name="Post_content" Type="nvarchar" MaxLength="50" />
+    <Property Name="Post_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="State_Id" />
+    </Key>
+    <Property Name="State_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Team_Id" />
+    </Key>
+    <Property Name="Team_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="U_id" Type="int" />
+    <Property Name="project_id" Type="int" />
+  </EntityType>
+  <EntityType Name="User_Role">
+    <Key>
+      <PropertyRef Name="Type_id" />
+    </Key>
+    <Property Name="Type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="U_Id" />
+    </Key>
+    <Property Name="U_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="U_FName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ULName" Type="nvarchar" MaxLength="50" />
+    <Property Name="U_Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="U_Phone" Type="int" />
+    <Property Name="U_Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="U_Job" Type="nvarchar" MaxLength="50" />
+    <Property Name="U_Pathphoto" Type="nvarchar(max)" />
+    <Property Name="Type_id" Type="int" />
+  </EntityType>
+  <EntityType Name="UsersAccepet">
+    <Key>
+      <PropertyRef Name="UAcc_Id" />
+    </Key>
+    <Property Name="UAcc_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_id" Type="int" />
+    <Property Name="Project_id" Type="int" />
+    <Property Name="state_id" Type="int" />
+  </EntityType>
+  <Association Name="FK__HiringReq__Proje__44FF419A">
+    <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+    <End Role="HiringRequest" Type="Self.HiringRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="HiringRequest">
+        <PropertyRef Name="Project_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HiringReq__State__46E78A0C">
+    <End Role="State" Type="Self.State" Multiplicity="0..1" />
+    <End Role="HiringRequest" Type="Self.HiringRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="State_Id" />
+      </Principal>
+      <Dependent Role="HiringRequest">
+        <PropertyRef Name="State_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HiringReq__User___45F365D3">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="HiringRequest" Type="Self.HiringRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="HiringRequest">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Project__Onprog___49C3F6B7">
+    <End Role="Onprogresstate" Type="Self.Onprogresstate" Multiplicity="0..1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Onprogresstate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="Onprog_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Project__State_I__48CFD27E">
+    <End Role="State" Type="Self.State" Multiplicity="0..1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="State_Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Project__User_Id__47DBAE45">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Team__project_id__4BAC3F29">
+    <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+    <End Role="Team" Type="Self.Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="project_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Team__U_id__4AB81AF0">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Team" Type="Self.Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="U_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__Type_id__4CA06362">
+    <End Role="User_Role" Type="Self.User_Role" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Role">
+        <PropertyRef Name="Type_id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UsersAcce__Proje__4E88ABD4">
+    <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+    <End Role="UsersAccepet" Type="Self.UsersAccepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Project_Id" />
+      </Principal>
+      <Dependent Role="UsersAccepet">
+        <PropertyRef Name="Project_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UsersAcce__state__4F7CD00D">
+    <End Role="State" Type="Self.State" Multiplicity="0..1" />
+    <End Role="UsersAccepet" Type="Self.UsersAccepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="State_Id" />
+      </Principal>
+      <Dependent Role="UsersAccepet">
+        <PropertyRef Name="state_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UsersAcce__User___4D94879B">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="UsersAccepet" Type="Self.UsersAccepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="UsersAccepet">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PMrealstateModelStoreContainer">
+    <EntitySet Name="HiringRequest" EntityType="Self.HiringRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Onprogresstate" EntityType="Self.Onprogresstate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Role" EntityType="Self.User_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersAccepet" EntityType="Self.UsersAccepet" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__HiringReq__Proje__44FF419A" Association="Self.FK__HiringReq__Proje__44FF419A">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="HiringRequest" EntitySet="HiringRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HiringReq__State__46E78A0C" Association="Self.FK__HiringReq__State__46E78A0C">
+      <End Role="State" EntitySet="State" />
+      <End Role="HiringRequest" EntitySet="HiringRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HiringReq__User___45F365D3" Association="Self.FK__HiringReq__User___45F365D3">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="HiringRequest" EntitySet="HiringRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Project__Onprog___49C3F6B7" Association="Self.FK__Project__Onprog___49C3F6B7">
+      <End Role="Onprogresstate" EntitySet="Onprogresstate" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Project__State_I__48CFD27E" Association="Self.FK__Project__State_I__48CFD27E">
+      <End Role="State" EntitySet="State" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Project__User_Id__47DBAE45" Association="Self.FK__Project__User_Id__47DBAE45">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Team__project_id__4BAC3F29" Association="Self.FK__Team__project_id__4BAC3F29">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Team__U_id__4AB81AF0" Association="Self.FK__Team__U_id__4AB81AF0">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__Type_id__4CA06362" Association="Self.FK__Users__Type_id__4CA06362">
+      <End Role="User_Role" EntitySet="User_Role" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UsersAcce__Proje__4E88ABD4" Association="Self.FK__UsersAcce__Proje__4E88ABD4">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="UsersAccepet" EntitySet="UsersAccepet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UsersAcce__state__4F7CD00D" Association="Self.FK__UsersAcce__state__4F7CD00D">
+      <End Role="State" EntitySet="State" />
+      <End Role="UsersAccepet" EntitySet="UsersAccepet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UsersAcce__User___4D94879B" Association="Self.FK__UsersAcce__User___4D94879B">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersAccepet" EntitySet="UsersAccepet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

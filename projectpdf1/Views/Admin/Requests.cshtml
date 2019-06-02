@@ -1,0 +1,57 @@
+﻿@model IEnumerable<projectpdf1.Models.HiringRequest>
+
+@{
+    ViewBag.Title = "Requests";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Requests</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.R_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Project_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.R_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestType)
+        </td>
+        <td>
+            @Html.ActionLink("Accept", "Approvepost", new { id = item.R_Id }) |
+            @Html.ActionLink("Reject", "Rejectpost", new { id = item.R_Id }) |
+            @Html.ActionLink("Details", "DetailsRequest", new { id = item.R_Id }) |
+
+        </td>
+    </tr>
+}
+
+</table>

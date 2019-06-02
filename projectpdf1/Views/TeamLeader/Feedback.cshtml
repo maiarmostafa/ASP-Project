@@ -1,0 +1,38 @@
+﻿@model projectpdf1.Models.feedback_
+
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_CustomerAndJE.cshtml";
+}
+
+<h2>Feedback</h2>
+
+
+<div class="modal-content" style="width:500px !important; margin:10px auto !important">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        Register Form
+    </div>
+    @using (Html.BeginForm("Feedback", "TeamLeader", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="modal-body">
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                @Html.LabelFor(x => x.Feedback)
+                @Html.TextAreaFor(x => x.Feedback, new { @class = "form-control", id = "Post name", placeholder = "Post_name ", type = "text", required = "true" })
+                @Html.ValidationMessageFor(x => x.Feedback, "", new { @class = "MessageError" })
+            </div>
+            
+            <input type="submit" class="center-block hi btn btn-sm btn-warning" value="Send">
+
+
+            @*@/*Html.LabelFor(x => x.photoFile)*/
+                @/*Html.TextBoxFor(x => x.photoFile, new { type = "file", name = "image", required = "true" })*/
+                @/*Html.ValidationMessageFor(x => x.photoFile, "", new { @class = "MessageError" })*@
+
+        </div>
+
+    }
+
+</div>

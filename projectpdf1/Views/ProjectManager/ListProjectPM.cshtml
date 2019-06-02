@@ -1,0 +1,64 @@
+﻿@model IEnumerable<projectpdf1.Models.Team>
+
+@{
+    ViewBag.Title = "ListProjectPM";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ListProjectPM</h2>
+
+<table class="table">
+    <tr>
+
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.U_id_PM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_id_JE)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.U_id_TL)
+        </th>
+
+        <th></th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+
+            <tr>
+
+                <th>
+                    @Html.DisplayFor(model => item.U_id_PM)
+                </th>
+                <th>
+                    @Html.DisplayFor(model => item.U_id_JE)
+                </th>
+
+                <th>
+                    @Html.DisplayFor(model => item.U_id_TL)
+                </th>
+
+
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.project_id }) |
+                    @Html.ActionLink("LeaveProject", "LeaveProject", new { id = item.Team_Id }) |
+                    @Html.ActionLink("Show Feedback", "Feedback", new { id = item.Team_Id }) |
+                    @Html.ActionLink("Remove JE", "RemoveJE", new { id = item.Team_Id }) |
+                    @Html.ActionLink("Remove TL", "RemoveTL", new { id = item.Team_Id }) |
+
+                    @Html.ActionLink("Assign JE", "AssignJE", new { id = item.project_id })
+
+
+                </td>
+            </tr>
+        }
+    }
+
+
+
+</table>

@@ -1,0 +1,147 @@
+﻿@model projectpdf1.Models.User
+
+
+@{
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_CustomerAndJE.cshtml";
+}
+
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    html, body, h1, h2, h3, h4, h5 {
+        font-family: "Open Sans", sans-serif
+    }
+
+
+    fa-phone:before {
+        content: "\f095"
+    }
+
+    .fa-phone-square:before {
+        content: "\f098"
+    }
+
+    .fa-envelope:before {
+        content: "\f0e0"
+    }
+
+    .table {
+        width: 120%;
+    }
+
+    .w3-row-padding > .w3-col {
+        padding: 0px 0px;
+    }
+
+    .w3-col.m12 {
+        width: 69.99999%;
+    }
+</style>
+
+
+<!-- Page Container -->
+<div class="w3-container w3-content " style="max-width:1400px;margin-top:80px">
+    <!-- The Grid -->
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+
+        <div class="w3-row-padding">
+            <div class="w3-col m12">
+                <div class="w3-card w3-round w3-white">
+                    <div class="w3-container w3-padding">
+                        <h6 class="w3-opacity">You can Now Post Your Project Fell Free To Assing it to Us!</h6>
+                        <!--<p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>-->
+                        @Html.ActionLink("Post", "CustomerPost", "Customer", "", new { @class = "btn btn-danger fa fa-pencil" })
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="table">
+            <ul class="nav nav-tabs " role="tablist">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Show All Projects</a></li>
+                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Show Project That have been deliverd</a></li>
+                <li role="presentation"><a href="#asign" aria-controls="asign" role="tab" data-toggle="tab">Asigned to PM </a></li>
+            </ul>
+
+            <div class="nav nav-tabs tab-content" role="tablist">
+                <div role="tabpanel" class="active tab-pane" id="home"> @Html.Partial("ListTest", Model.Projects.Where(x => x.State_Id == 2 )))</div>
+
+
+                <div role="tabpanel" class="tab-pane" id="profile">@Html.Partial("ProjectDeliverd", Model.Projects.Where(x => x.Onprog_id == 2 )) </div>
+
+
+                <div role="tabpanel" class="tab-pane" id="asign">@Html.Partial("ProjectDeliverd", Model.Projects) KKKKKKKKKK</div>
+            </div>
+        </div>
+
+
+        <ul class="nav nav-pills">
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Dropdown <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    @Model.U_FName @*      ht7dd hna el users ele homa el PM ele 3wz t3rdhom aw fi el function     *@
+                </ul>
+
+            </li>
+        </ul>
+
+
+
+        <!-- End Middle Column -->
+    </div>
+
+
+
+    <!-- Right Column -->
+    <div class="w3-col m3 col-lg-pull-5 pull-right">
+        <!-- Profile -->
+        <div class="w3-card w3-round " style="background:#fdf4f0">
+            <div class="w3-container">
+                <br />
+                <p class="w3-center"><img src="@Url.Content(Model.U_Pathphoto)" class="w3-circle" style="height:106px;width:106px" alt="Avatar" /></p>
+                <h3 class="w3-center" style="text-transform:capitalize;">@Model.U_FName @Model.ULName</h3>
+                <hr>
+                <p style="text-transform:capitalize;"><i class="glyphicon glyphicon-lock fa-fw w3-margin-right w3-text-theme"></i>@Model.U_Job</p>
+                <p><i class="glyphicon glyphicon-earphone fa-fw w3-margin-right w3-text-theme"></i> @Model.U_Phone</p>
+                <p><i class="glyphicon glyphicon-envelope fa-fw w3-margin-right w3-text-theme"></i> @Model.U_Email</p>
+
+            </div>
+        </div>
+        <br>
+        <!--<div class="w3-card w3-round w3-white w3-center">
+            <div class="w3-container">
+                <p>Friend Request</p>
+                <img src="/w3images/avatar6.png" alt="Avatar" style="width:50%"><br>
+                <span>Jane Doe</span>
+                <div class="w3-row w3-opacity">
+                    <div class="w3-half">
+                        <button class="w3-button w3-block w3-green w3-section" title="Accept"><i class="fa fa-check"></i></button>
+                    </div>
+                    <div class="w3-half">
+                        <button class="w3-button w3-block w3-red w3-section" title="Decline"><i class="fa fa-remove"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>-->
+        <!-- End Right Column -->
+    </div>
+
+    <!-- End Grid -->
+</div>
+
+<!-- End Page Container -->
+</div>
+<br>
+

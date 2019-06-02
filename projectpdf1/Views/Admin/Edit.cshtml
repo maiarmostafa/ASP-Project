@@ -1,0 +1,69 @@
+﻿@model projectpdf1.Models.User
+
+@{
+    ViewBag.Title = "Edit User";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Add Users</h2>
+@using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(x => x.U_Id)
+    <div class="form-group">
+        @Html.LabelFor(x => x.U_FName)
+        @Html.TextBoxFor(x => x.U_FName, new { @class = "form-control", id = "firstname", placeholder = "First Name", type = "text", required = "true" })
+        @Html.ValidationMessageFor(x => x.U_FName, "", new { @class = "MessageError" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.ULName)
+        @Html.TextBoxFor(x => x.ULName, new { @class = "form-control", id = "lastname", placeholder = "Last Name", type = "text", required = "true" })
+        @Html.ValidationMessageFor(x => x.ULName, "", new { @class = "MessageError" })
+    </div>
+    <div class="form-group">
+
+        @Html.LabelFor(x => x.U_Email)
+        @Html.TextBoxFor(x => x.U_Email, new { @class = "form-control", id = "Email", placeholder = "Example@email.com", type = "email", required = "true" })
+        @Html.ValidationMessageFor(x => x.U_Email, "", new { @class = "MessageError" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.U_Job)
+        @Html.TextBoxFor(x => x.U_Job, new { @class = "form-control", id = "job", placeholder = "job", type = "text", required = "true" })
+        @Html.ValidationMessageFor(x => x.U_Job, "", new { @class = "MessageError" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.U_Phone)
+        @Html.TextBoxFor(x => x.U_Phone, new { @class = "form-control", id = "phone", placeholder = "01111111111", type = "number", required = "true" })
+        @Html.ValidationMessageFor(x => x.U_Phone, "", new { @class = "MessageError" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.U_Password)
+        @Html.TextBoxFor(x => x.U_Password, new { @class = "form-control", id = "Password", placeholder = "Password", type = "password" })
+        @Html.ValidationMessageFor(x => x.U_Password, "", new { @class = "MessageError" })
+    </div>
+    <div class="form-group">
+        <label> Photo </label>
+        <input type="file" name="photo" />
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Type_id)
+        @Html.DropDownList("Type_id", EnumHelper.GetSelectList(typeof(projectpdf1.App_Code.UsersTypeNameMapping)), "Enter Type")
+        @Html.ValidationMessageFor(x => x.Type_id)
+    </div>
+
+    <div class="line line2"></div>
+
+    <button type="submit" class="center-block hi btn btn-sm btn-warning">Update </button>
+
+    <br />
+    <br />
+    <div>
+        @Html.ActionLink("Back to List", "Index", "Admin", new { @class = "btn btn-success" })
+    </div>
+
+}
+
+

@@ -1,0 +1,43 @@
+﻿@model  projectpdf1.Models.Project
+@{
+    ViewBag.Title = "Addproject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Add project</h2>
+@using (Html.BeginForm("Addproject", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(x => x.User_Id)
+    <div class="form-group">
+        @Html.LabelFor(x => x.Post_name)
+        @Html.TextBoxFor(x => x.Post_name, new { @class = "form-control", id = "firstname", placeholder = "First Name", type = "text", required = "true" })
+        @Html.ValidationMessageFor(x => x.Post_name, "", new { @class = "MessageError" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Post_content)
+        @Html.TextAreaFor(x => x.Post_content, new { @class = "form-control", id = "lastname", placeholder = "Last Name", type = "text", required = "true" })
+        @Html.ValidationMessageFor(x => x.Post_content, "", new { @class = "MessageError" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.State_Id)
+        @Html.DropDownList("State_Id", EnumHelper.GetSelectList(typeof(projectpdf1.App_Code.StateMapping)), "Enter Type")
+        @Html.ValidationMessageFor(x => x.State_Id)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Onprog_id)
+        @Html.DropDownList("Onprog_id", EnumHelper.GetSelectList(typeof(projectpdf1.App_Code.OnProgressMapping)), "Enter Type")
+        @Html.ValidationMessageFor(x => x.Onprog_id)
+    </div>
+
+    <div class="line line2"></div>
+
+    <button type="submit" class="center-block hi btn btn-sm btn-warning">Add Project </button>
+
+
+
+
+}

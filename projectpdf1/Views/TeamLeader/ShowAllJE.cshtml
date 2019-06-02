@@ -1,0 +1,72 @@
+﻿@model IEnumerable<projectpdf1.Models.User>
+
+@{
+    ViewBag.Title = "ShowAllJE";
+    Layout = "~/Views/Shared/_CustomerAndJE.cshtml";
+}
+
+<h2>ShowAllJE</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.U_FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ULName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_Job)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.U_Pathphoto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type_id)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.U_FName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ULName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.U_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.U_Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.U_Password)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.U_Job)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.U_Pathphoto)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Type_id)
+            </td>
+            <td>
+                @Html.ActionLink("Assign", "Assign", new { id = item.U_Id })
+            </td>
+        </tr>
+    }
+
+</table>

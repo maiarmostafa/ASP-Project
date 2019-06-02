@@ -1,0 +1,61 @@
+﻿@model IEnumerable<projectpdf1.Models.HiringRequest>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerAndJE.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("show All project", "ListProjectTL")
+    </br>
+    @Html.ActionLink("Profile", "TLProfile")
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.R_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Project_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestType)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.R_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestType)
+            </td>
+            <td>
+                @Html.ActionLink("Accept", "Accept", new { id = item.R_Id }) |
+                @Html.ActionLink("Refuse", "Refuse", new { id = item.R_Id }) |
+            </td>
+        </tr>
+    }
+
+</table>
